@@ -1,3 +1,5 @@
+export const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+
 export const restaurants = [
   {
     info: {
@@ -33,7 +35,7 @@ export const restaurants = [
       areaName: "Hatibagan",
       costForTwo: "₹120 for two",
       cuisines: ["Ice Cream", "Desserts"],
-      avgRating: 4.8,
+      avgRating: 3.8,
       veg: true,
       parentId: "6249",
       avgRatingString: "4.8",
@@ -82,7 +84,7 @@ export const restaurants = [
       areaName: "Burrabazar",
       costForTwo: "₹200 for two",
       cuisines: ["Desserts", "Ice Cream", "Ice Cream Cakes"],
-      avgRating: 4.8,
+      avgRating: 4.0,
       veg: true,
       parentId: "582",
       avgRatingString: "4.8",
@@ -131,7 +133,7 @@ export const restaurants = [
       areaName: "Esplanade",
       costForTwo: "₹350 for two",
       cuisines: ["Burgers", "American"],
-      avgRating: 4.3,
+      avgRating: 3.4,
       parentId: "166",
       avgRatingString: "4.3",
       totalRatingsString: "18K+",
@@ -155,7 +157,7 @@ export const restaurants = [
       areaName: "Hatibagan",
       costForTwo: "₹120 for two",
       cuisines: ["Ice Cream", "Desserts"],
-      avgRating: 4.8,
+      avgRating: 2.8,
       veg: true,
       parentId: "12175",
       avgRatingString: "4.8",
@@ -204,7 +206,7 @@ export const restaurants = [
       areaName: "Park Street",
       costForTwo: "₹150 for two",
       cuisines: ["Ice Cream", "Desserts"],
-      avgRating: 4.8,
+      avgRating: 3.8,
       parentId: "2093",
       avgRatingString: "4.8",
       totalRatingsString: "24K+",
