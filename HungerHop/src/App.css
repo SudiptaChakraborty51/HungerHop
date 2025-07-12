@@ -116,3 +116,13 @@
   flex-direction: column;
   background-color: #f0f0f0;
 }
+
+.login-btn {
+  padding: 0 10px;
+  margin: 0 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+  background-color: #f15928;
+  color: white;
+}

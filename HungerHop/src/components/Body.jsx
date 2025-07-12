@@ -1,11 +1,11 @@
 import RestaurantCard from "./RestaurantCard";
-import { restaurants } from "../assets/constants";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [isTopRatedClicked, setIsTopRatedClicked] = useState(false);
   const [restaurantsData, setRestaurantsData] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchedRestaurant, setSearchedRestaurant] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -19,6 +19,10 @@ const Body = () => {
       res?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
+    setFilteredRestaurants(
+      res?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
     setIsLoading(false);
   };
 
@@ -29,24 +33,24 @@ const Body = () => {
   useEffect(() => {
     if (isTopRatedClicked) {
       const updatedRestaurants = restaurantsData?.filter(
-        (item) => item?.info?.avgRating >= 4
+        (item) => item?.info?.avgRating >= 4.5
       );
-      setRestaurantsData(updatedRestaurants);
+      setFilteredRestaurants(updatedRestaurants);
     } else {
-      setRestaurantsData(restaurants);
+      setFilteredRestaurants(restaurantsData);
     }
-  }, [isTopRatedClicked]);
+  }, [isTopRatedClicked, restaurantsData]);
 
   useEffect(() => {
     if (!searchedRestaurant.trim()) {
-      setRestaurantsData(restaurants);
+      setFilteredRestaurants(restaurantsData);
     } else {
       const filteredList = restaurantsData?.filter((item) =>
         item.info.name.toLowerCase().includes(searchedRestaurant.toLowerCase())
       );
-      setRestaurantsData(filteredList);
+      setFilteredRestaurants(filteredList);
     }
-  }, [searchedRestaurant]);
+  }, [searchedRestaurant, restaurantsData]);
 
   return (
     <div className="body">
@@ -54,6 +58,7 @@ const Body = () => {
         <input
           className="search-input"
           placeholder="Search"
+          type="text"
           value={searchedRestaurant}
           onChange={(e) => setSearchedRestaurant(e.target.value)}
         />
@@ -68,7 +73,7 @@ const Body = () => {
         <Shimmer />
       ) : (
         <div className="restaurant-container">
-          {restaurantsData?.map((res) => (
+          {filteredRestaurants?.map((res) => (
             <RestaurantCard key={res?.info?.id} restaurant={res} />
           ))}
         </div>
