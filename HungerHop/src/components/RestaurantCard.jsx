@@ -12,6 +12,7 @@ const RestaurantCard = ({ restaurant }) => {
         <h4 className="restaurant-name">{restaurant?.info?.name}</h4>
         <p>{restaurant?.info?.cuisines?.join(", ")}</p>
         <p>{restaurant?.info?.areaName}</p>
+        <p>{restaurant?.info?.costForTwo}</p>
         <div className="star-delivery-content">
           <p>{restaurant?.info?.avgRating} stars</p>
           <p>{restaurant?.info?.sla?.slaString}</p>
