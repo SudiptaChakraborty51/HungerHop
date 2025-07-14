@@ -14,6 +14,9 @@ const Body = () => {
     const apiRes = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5743545&lng=88.3628734&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
+    // const apiRes = await fetch(
+    //   "https://raw.githubusercontent.com/namastedev/namaste-react/refs/heads/main/swiggy-api"
+    // );
     const res = await apiRes.json();
     setRestaurantsData(
       res?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
